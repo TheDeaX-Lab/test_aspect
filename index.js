@@ -9,6 +9,7 @@ function xml_to_json(xml_string) {
         match = pattern.exec(xml_string)
         pattern.lastIndex = 0
         if (!match) {
+            if (xml_string.length > 0 && not_empty_pattern.test(xml_string)) xml_json.push(xml_string.trim())
             break
         }
         else if (match.index > 0 && not_empty_pattern.test(xml_string.slice(0, match.index))) {
